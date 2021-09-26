@@ -10,7 +10,7 @@ body {
 
 #envelope {
   width: 50vh;
-  background-image: url("/images/env-background.png");
+  background-image: url("images/env-background.png");
   border-radius: 10px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   position: relative;
@@ -31,7 +31,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/images/env-background.png");
+  background-image: url("images/env-background.png");
   transform-origin: 100% 0;
   transform: rotate(45deg);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
@@ -59,7 +59,7 @@ body {
   top: 0;
   height: 100%;
   width: 100%;
-  background-image: url("/images/env-background.png");
+  background-image: url("images/env-background.png");
   clip-path: polygon(50% 60%, 100% 0, 100% 100%, 0 100%, 0 0);
   border-radius: 10px;
 }
