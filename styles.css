@@ -1,0 +1,218 @@
+body {
+  background-color: rgb(239, 240, 230);
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#envelope {
+  width: 50vh;
+  background-image: url("/images/env-background.png");
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  position: relative;
+  cursor: pointer;
+}
+
+.fold {
+  width: 100%;
+  /* = width / 1.41 */
+  padding-bottom: 70.92%; 
+  overflow: hidden;
+  top: 5px;
+}
+.fold::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/images/env-background.png");
+  transform-origin: 100% 0;
+  transform: rotate(45deg);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.open .flip {
+  transform-origin: top;
+  transform: rotateX(180deg);
+  transition: transform .4s .2s ease, z-index .4s;
+  z-index: 4;
+  position: relative;
+}
+.close .flip {
+  transform-origin: top;
+  transform: rotateX(0deg);
+  transition: transform .4s .8s ease, z-index .8s;
+  z-index: 6;
+  position: relative;
+}
+
+.pocket {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("/images/env-background.png");
+  clip-path: polygon(50% 60%, 100% 0, 100% 100%, 0 100%, 0 0);
+  border-radius: 10px;
+}
+.open .pocket {
+  z-index: 6;
+  transition: z-index .2s ease .4s;
+}
+.close .pocket {
+  z-index: 3;
+  transition: z-index .2s ease .6s;
+}
+
+.letter {
+  position: absolute;
+  background-color: #fff;
+  width: 96%;
+  margin-left: 2%;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+}
+.letter img {
+  width: auto;
+}
+.open .letter {
+  transform: translateY(-50%);
+  transition: transform .4s .8s ease, z-index .4s ease .4s;
+  z-index: 5;
+}
+.close .letter {
+  transform: translateY(0px);
+  transition: transform .4s ease .2s, z-index .2s ease .6s;
+  z-index: 1;
+}
+
+.heart-container {
+  position: absolute;
+  bottom: 10vh;
+  left: 40%;
+  z-index: -1;
+}
+.open .heart-container {
+  z-index: 5;
+  transition: z-index .1s ease 1.2s;
+}
+.heart {
+  position: absolute;
+  right: 10%;
+  height: 5vh;
+  width: 6vh;
+  margin-top: 10px;
+}
+.heart::before, .heart::after {
+  content: "";
+  background-color: red;
+  transform: rotate(-45deg);
+  position: absolute;
+  width: 5vh;
+  height: calc(5vh * 1.6);
+  top: 0;
+  border-radius: 50px 50px 0 0;
+}
+.heart::before {
+  left: 5vh;
+  transform-origin: 0 100%;
+}
+.heart::after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+.close .heart {
+  opacity: 0;
+  animation: none;
+}
+.a1 {
+  left: 20%;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+  opacity: 1;
+  -webkit-animation: 
+      slideUp 4s linear 1, 
+      sideSway 2s ease-in-out 4 alternate;
+  -moz-animation: 
+      slideUp 4s linear 1, 
+      sideSway 2s ease-in-out 4 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: .6s;
+}
+.a2 {
+  left: 55%;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+  opacity: 1;
+  -webkit-animation: 
+      slideUp 5s linear 1, 
+      sideSway 4s ease-in-out 2 alternate;
+  -moz-animation: 
+      slideUp 5s linear 1, 
+      sideSway 4s ease-in-out 2 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: .6s;
+}
+.a3 {
+  left: 10%;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
+  opacity: 1;
+  -webkit-animation: 
+      slideUp 7s linear 1, 
+      sideSway 2s ease-in-out 6 alternate;
+  -moz-animation: 
+      slideUp 7s linear 1, 
+      sideSway 2s ease-in-out 6 alternate; 
+  animation-fill-mode: forwards;
+  animation-delay: .6s;
+}
+
+@-webkit-keyframes slideUp { 
+  0% { 
+      top: 0;
+  }
+  100% { 
+      top: -80vh;
+  }
+}
+@keyframes slideUp {     
+  0% { 
+      top: 0;
+  }
+  100% { 
+      top: -80vh;
+  }
+}
+@-webkit-keyframes sideSway { 
+  0% { 
+      margin-left: 0px;
+  }
+  100% { 
+      margin-left: 8vh;
+  }
+}
+@keyframes sideSway {
+  0% {
+      margin-left: 0px;
+  }
+  100% {
+      margin-left: 8vh;
+  }
+}
