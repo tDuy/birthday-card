@@ -100,7 +100,7 @@ body {
 
 .heart-container {
   position: absolute;
-  bottom: 10vh;
+  bottom: 12vh;
   left: 40%;
   z-index: -1;
 }
